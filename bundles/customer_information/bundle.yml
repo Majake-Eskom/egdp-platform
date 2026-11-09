@@ -1,0 +1,20 @@
+bundle: customer_information
+owner: Business Development Data Steward
+schedule: monthly
+sources:
+  - name: customer_master
+    connector: excel
+    path: "{landing}/Customer Data (1).xlsx"
+    sheet: Customer_Details
+    key: [customer_id]
+    columns:
+      "Customer ID": customer_id
+      "Customer Name": customer_name
+      "Customer Group": customer_group
+      "Sector": sector
+      "Entity Type": entity_type
+      "Province": province
+      "Annual_Consumption": annual_consumption
+      "Average Demand": average_demand
+    bronze: bronze.customer_master
+    silver: silver.customer

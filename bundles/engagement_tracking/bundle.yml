@@ -1,0 +1,26 @@
+bundle: engagement_tracking
+owner: Relationship Management Lead
+schedule: monthly
+sources:
+  - name: engagement_tracker
+    connector: excel
+    path: "{landing}/Customer Data (1).xlsx"
+    sheet: Customer_Engagement_Tracker
+    key: [tracker_id]
+    columns:
+      "Tracker ID": tracker_id
+      "Customer ID": customer_id
+      "Customer Contact": customer_contact
+      "Eskom Dx Relationship Manager": relationship_manager
+      "Engagement Stage": engagement_stage
+      "Last Engagement Date": last_engagement_date
+      "Latest Engagement Summary": latest_engagement_summary
+      "Next Action": next_action
+      "Action Owner": action_owner
+      "Due Date for Next Action": next_action_due_date
+      "Key Risk": key_risk
+      "Opportunity Status": opportunity_status
+      "Eskom Green Portfolio Offered": portfolio_offered
+      "Last Updated": last_updated
+    bronze: bronze.engagement_tracker
+    silver: silver.engagement

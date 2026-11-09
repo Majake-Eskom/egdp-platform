@@ -1,0 +1,3 @@
+discrepancy_id,date_found,bundle,customer_code,field,source_a,value_a,source_b,value_b,difference,category,status,raised_by,discussion_date,resolution,resolved_by
+D001,2026-11-09,customer_information,ALL,sector,Customer_Details,Industrial,Customer_Details,Manufacturing,Overlapping segment labels,segment_sector,for_discussion,Graduate team,,,
+D002,2026-11-09,customer_information,ALL,annual_consumption / average_demand,Customer_Details,Units not stated,,,Units need confirming before demand figures are compared,demand,open,Graduate team,,,

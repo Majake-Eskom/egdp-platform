@@ -1,0 +1,17 @@
+customer_master:
+  - {rule: not_null, column: customer_id,   severity: error}
+  - {rule: unique,   column: customer_id,   severity: error}
+  - {rule: not_null, column: customer_name, severity: error}
+
+  - {rule: not_null, column: customer_group, severity: warn}
+  - {rule: not_null, column: sector,         severity: warn}
+  - {rule: not_null, column: province,       severity: warn}
+
+  - rule: allowed
+    column: sector
+    severity: warn
+    values: [Mining, Industrial, Commercial, Logistics, Manufacturing, Distribution]
+
+  # Not in the engine yet
+  - {rule: positive, column: annual_consumption, severity: warn}
+  - {rule: positive, column: average_demand,     severity: warn}
