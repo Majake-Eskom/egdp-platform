@@ -7,21 +7,44 @@ sources:
     path: "{landing}/Customer Data (1).xlsx"
     sheet: Customer_Engagement_Tracker
     key: [tracker_id]
+    personal_data:
+      - customer_contact
+      - customer_contact_position
+      - customer_contact_number
+      - customer_email_address
+    transform:
+      date: [first_engagement_date, last_engagement_date, next_action_due_date, last_updated]
+      placeholder:
+        - customer_contact
+        - customer_contact_position
+        - customer_contact_number
+        - customer_email_address
     columns:
       "Tracker ID": tracker_id
       "Customer ID": customer_id
       "Customer Contact": customer_contact
+      "Customer Contact Position": customer_contact_position
+      "Customer Contact Number": customer_contact_number
+      "Customer Email Address": customer_email_address
       "Eskom Dx Relationship Manager": relationship_manager
       "Engagement Stage": engagement_stage
+      "First Engagement Date": first_engagement_date
       "Last Engagement Date": last_engagement_date
       "Latest Engagement Summary": latest_engagement_summary
+      "Existing Relationship Status": existing_relationship_status
+      "Relationship Strength": relationship_strength
       "Next Action": next_action
       "Action Owner": action_owner
       "Due Date for Next Action": next_action_due_date
       "Key Risk": key_risk
       "Opportunity Status": opportunity_status
       "Eskom Green Portfolio Offered": portfolio_offered
-      "Current Portfolio": current_portfolio
       "Last Updated": last_updated
+      # Possible duplicates: confirm, then swap in for the matching line above
+      # "Eskom Relationship Manager": relationship_manager
+      # "Customer Contact Person": customer_contact
+      # "Last Meeting Date": last_meeting_date
+      # "Latest Engagement Date": last_engagement_date
+      # "Meeting Notes": latest_engagement_summary
     bronze: bronze.engagement_tracker
     silver: silver.engagement

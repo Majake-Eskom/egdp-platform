@@ -8,6 +8,10 @@ sources:
     sheet: Customer_Details
     key: [customer_id]
     personal_data: [contact_details]
+    transform:
+      company_name: [customer_name, customer_group]
+      numeric: [annual_consumption_gwh, average_demand_mw]
+      placeholder: [contact_details]
     columns:
       "Customer ID": customer_id
       "Customer Number": customer_number
