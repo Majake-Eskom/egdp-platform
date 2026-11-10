@@ -13,5 +13,5 @@ customer_master:
     values: [Mining, Industrial, Commercial, Logistics, Manufacturing, Distribution]
 
   # Not in the engine yet
-  - {rule: positive, column: annual_consumption, severity: warn}
-  - {rule: positive, column: average_demand,     severity: warn}
+  - {rule: positive, column: annual_consumption_gwh, severity: warn}
+  - {rule: positive, column: average_demand_mw,     severity: warn}

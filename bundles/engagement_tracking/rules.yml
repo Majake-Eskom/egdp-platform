@@ -12,6 +12,7 @@ engagement_tracker:
 
   - {rule: not_null,   column: engagement_stage,     severity: warn}
   - {rule: not_null,   column: action_owner,         severity: warn}
+  - {rule: valid_date, column: first_engagement_date, severity: warn}   # not in the engine yet
   - {rule: valid_date, column: last_engagement_date, severity: warn}   # not in the engine yet
   - {rule: valid_date, column: next_action_due_date, severity: warn}   # not in the engine yet
 

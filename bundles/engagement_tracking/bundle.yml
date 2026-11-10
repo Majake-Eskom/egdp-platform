@@ -21,6 +21,7 @@ sources:
       "Key Risk": key_risk
       "Opportunity Status": opportunity_status
       "Eskom Green Portfolio Offered": portfolio_offered
+      "Current Portfolio": current_portfolio
       "Last Updated": last_updated
     bronze: bronze.engagement_tracker
     silver: silver.engagement

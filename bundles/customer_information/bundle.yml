@@ -7,14 +7,29 @@ sources:
     path: "{landing}/Customer Data (1).xlsx"
     sheet: Customer_Details
     key: [customer_id]
+    personal_data: [contact_details]
     columns:
       "Customer ID": customer_id
+      "Customer Number": customer_number
       "Customer Name": customer_name
       "Customer Group": customer_group
       "Sector": sector
       "Entity Type": entity_type
       "Province": province
-      "Annual_Consumption": annual_consumption
-      "Average Demand": average_demand
+      "Site Location": site_location
+      "Contact Details": contact_details
+      "Website Link": website_link
+      "Annual_Consumption": annual_consumption_gwh
+      "Average Demand": average_demand_mw
+      "Tariff Name": tariff_name
+      "IPP Name": ipp_name
+      "Existing IPP Relation": existing_ipp_relation
+      "IPP Supplying": ipp_supplying
+      "Current Portfolio": current_portfolio
+      "Wheeling Type": wheeling_type
+      "PPA": ppa
+      "Decarbonisation Strategy": decarbonisation_strategy
+      "Potential Opportunities": potential_opportunities
+      "Carbon Reduction Targets": carbon_reduction_targets
     bronze: bronze.customer_master
     silver: silver.customer
