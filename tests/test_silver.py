@@ -36,3 +36,12 @@ def test_surrogate_keys_stay_stable_between_runs():
     keys = db.read(con, "silver.customer").set_index("customer_id")["customer_key"]
     assert keys["C2"] == 2      # kept its key although the name changed
     assert keys["C3"] == 3      # new customer gets the next key
+
+def test_rerun_with_unchanged_customers_keeps_all_keys():
+    con = db.connect(":memory:")
+    source = {"key": ["customer_id"], "silver": "silver.customer"}
+    df = pd.DataFrame({"customer_id": ["C1", "C2"], "customer_name": ["A", "B"]})
+    build(con, df, source)
+    build(con, df, source)
+    keys = db.read(con, "silver.customer").sort_values("customer_id")["customer_key"]
+    assert keys.tolist() == [1, 2]

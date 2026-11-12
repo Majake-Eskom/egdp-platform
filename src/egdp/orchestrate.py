@@ -4,7 +4,7 @@ import yaml
 
 from egdp.connectors import CONNECTORS
 from egdp.control import registry, runlog
-from egdp.layers import bronze, silver
+from egdp.layers import bronze, gold, silver
 from egdp.quality import rules as dq
 
 
@@ -31,6 +31,15 @@ def run_source(con, source: dict, rules: dict, run_id: int) -> None:
     registry.mark_loaded(con, name)
 
 
+def personal_columns(bundles_root) -> set:
+    """Every column any bundle marks as personal data."""
+    cols = set()
+    for f in Path(bundles_root).glob("*/bundle.yml"):
+        for s in yaml.safe_load(f.read_text())["sources"]:
+            cols.update(s.get("personal_data", []))
+    return cols
+
+
 def run_bundle(con, bundle_dir, landing: str) -> int:
     bundle_dir = Path(bundle_dir)
     bundle = yaml.safe_load((bundle_dir / "bundle.yml").read_text())
@@ -51,5 +60,16 @@ def run_bundle(con, bundle_dir, landing: str) -> int:
         except Exception:
             failed.append(source["name"])      # already logged; carry on
 
-    runlog.finish_run(con, run_id, "failed" if failed else "succeeded")
+    if failed:
+        # Gold is not rebuilt: reports keep the last good data
+        runlog.finish_run(con, run_id, "failed")
+    else:
+        try:
+            with runlog.step(con, run_id, "all", "gold") as info:
+                info["rows_out"] = gold.build(
+                    con, bundle_dir, personal_columns(bundle_dir.parent)
+                )
+            runlog.finish_run(con, run_id, "succeeded")
+        except Exception:
+            runlog.finish_run(con, run_id, "failed")
     return run_id

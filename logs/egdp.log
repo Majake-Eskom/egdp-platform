@@ -1,0 +1,24 @@
+2026-11-10 13:07:27,770 INFO run 3 | customer_master | bronze | started
+2026-11-10 13:07:27,779 ERROR run 3 | customer_master | bronze | failed | in=None out=None [Errno 2] No such file or directory: 'data\\nowhere/Customer Data (1).xlsx'
+2026-11-10 13:07:28,801 INFO run 4 | customer_master | bronze | started
+2026-11-10 13:07:29,195 INFO run 4 | customer_master | bronze | succeeded | in=5 out=5 
+2026-11-10 13:07:29,201 INFO run 4 | customer_master | quality | started
+2026-11-10 13:07:29,215 INFO run 4 | customer_master | quality | succeeded | in=5 out=None 
+2026-11-10 13:07:29,219 INFO run 4 | customer_master | silver | started
+2026-11-10 13:07:29,263 ERROR run 4 | customer_master | silver | failed | in=None out=None Invalid value '[]' for dtype 'int64'
+2026-11-12 12:25:17,857 INFO run 1 | customer_master | bronze | started
+2026-11-12 12:25:18,217 INFO run 1 | customer_master | bronze | succeeded | in=5 out=5 
+2026-11-12 12:25:18,223 INFO run 1 | customer_master | quality | started
+2026-11-12 12:25:18,238 INFO run 1 | customer_master | quality | succeeded | in=5 out=None 
+2026-11-12 12:25:18,243 INFO run 1 | customer_master | silver | started
+2026-11-12 12:25:18,289 INFO run 1 | customer_master | silver | succeeded | in=5 out=5 
+2026-11-12 12:25:18,299 INFO run 1 | all | gold | started
+2026-11-12 12:25:18,340 INFO run 1 | all | gold | succeeded | in=None out=2 
+2026-11-12 12:25:18,378 INFO run 2 | engagement_tracker | bronze | started
+2026-11-12 12:25:18,419 INFO run 2 | engagement_tracker | bronze | succeeded | in=3 out=3 
+2026-11-12 12:25:18,426 INFO run 2 | engagement_tracker | quality | started
+2026-11-12 12:25:18,447 INFO run 2 | engagement_tracker | quality | succeeded | in=3 out=None 
+2026-11-12 12:25:18,452 INFO run 2 | engagement_tracker | silver | started
+2026-11-12 12:25:18,490 INFO run 2 | engagement_tracker | silver | succeeded | in=3 out=3 
+2026-11-12 12:25:18,502 INFO run 2 | all | gold | started
+2026-11-12 12:25:18,535 INFO run 2 | all | gold | succeeded | in=None out=2 

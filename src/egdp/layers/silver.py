@@ -62,7 +62,8 @@ def assign_keys(con, df: pd.DataFrame, source: dict) -> pd.DataFrame:
         start = 1
 
     missing = df[key_col].isna()
-    df.loc[missing, key_col] = list(range(start, start + int(missing.sum())))
+    if missing.any():
+        df.loc[missing, key_col] = list(range(start, start + int(missing.sum())))
     df[key_col] = df[key_col].astype(int)
     return df[[key_col] + [c for c in df.columns if c != key_col]]
 

@@ -1,3 +1,4 @@
+import re
 import sqlite3
 from pathlib import Path
 
@@ -25,6 +26,7 @@ def read(con, name: str, where: str = "", params: tuple = ()) -> pd.DataFrame:
         sql += f" WHERE {where}"
     return pd.read_sql_query(sql, con, params=params)
 
+
 def migrate(con, folder: str = "sql/sqlite") -> None:
     """Apply numbered migration files in order, each exactly once."""
     con.execute(
@@ -42,9 +44,23 @@ def migrate(con, folder: str = "sql/sqlite") -> None:
         )
         con.commit()
 
+
 def table_exists(con, name: str) -> bool:
     row = con.execute(
         "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
         (table_name(name),),
     ).fetchone()
     return row is not None
+
+
+def render(sql: str) -> str:
+    """Swap {schema.table} placeholders for the real table names."""
+    return re.sub(r"\{(\w+\.\w+)\}", lambda m: table_name(m.group(1)), sql)
+
+
+def list_tables(con, schema: str) -> list[str]:
+    """Table names in a schema (SQLite: tables with that prefix), without the prefix."""
+    prefix = f"{schema}_"
+    rows = con.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name")
+    return [r[0][len(prefix):] for r in rows
+            if r[0].startswith(prefix) and not r[0].endswith("__new")]

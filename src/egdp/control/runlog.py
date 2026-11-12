@@ -1,5 +1,8 @@
 from contextlib import contextmanager
 from datetime import datetime, timezone
+import logging
+
+log = logging.getLogger("egdp")
 
 
 def now() -> str:
@@ -35,6 +38,7 @@ def step(con, run_id: int, source: str, layer: str):
     con.commit()
     step_id, info = cur.lastrowid, {}
     status, error = "failed", "interrupted"
+    log.info("run %s | %s | %s | started", run_id, source, layer)
     try:
         yield info
         status, error = "succeeded", None
@@ -49,6 +53,12 @@ def step(con, run_id: int, source: str, layer: str):
              error, now(), step_id),
         )
         con.commit()
+        log.log(
+            logging.INFO if status == "succeeded" else logging.ERROR,
+            "run %s | %s | %s | %s | in=%s out=%s %s",
+            run_id, source, layer, status,
+            info.get("rows_in"), info.get("rows_out"), error or "",
+        )
 
 def save_dq(con, run_id: int, source: str, results: list) -> None:
     con.executemany(
