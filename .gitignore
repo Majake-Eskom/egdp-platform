@@ -1,4 +1,13 @@
+# Python
 .venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Data and databases: never commit data (it may be confidential)
 data/
 *.db
-__pycache__/logs/
+
+# Logs and published files
+logs/
+exports/
