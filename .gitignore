@@ -3,6 +3,7 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+*.egg-info/
 
 # Data and databases: never commit data (it may be confidential)
 data/
