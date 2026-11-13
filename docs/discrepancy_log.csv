@@ -1,3 +1,4 @@
 discrepancy_id,date_found,bundle,customer_code,field,source_a,value_a,source_b,value_b,difference,category,status,raised_by,discussion_date,resolution,resolved_by
 D002,2026-11-09,customer_information,ALL,annual_consumption / average_demand,Customer_Details,Units not stated,,,Units needed confirming,demand,resolved,Graduate team,2026-11-09,Confirmed: annual_consumption = GWh; average_demand = MW,Graduate team
-D003,2026-11-09,opportunity,ALL,renewable_energy_targets / re_mw_requirement,Customer Data (1).xlsx,Not present,Offtake / Pipeline / Stakeholder files,Held separately,Targets and RE MW sit outside the customer workbook,renewable_target,open,Graduate team,,,
+D003,2026-11-09,opportunity,ALL,renewable_energy_targets / re_mw_requirement,Customer Data (1).xlsx,Not present,Offtake / Pipeline / Stakeholder files,Held separately,Targets and RE MW sit outside the customer workbook,renewable_target,open,Graduate team
+D004,2026-11-12,customer_information,ALL,planned_capacity_mw,Customer Details,Planned Capacity (MW),Offtake files,RE requirement values,Definition question: which is the master demand or opportunity measure,demand,for_discussion,Graduate team,,,
