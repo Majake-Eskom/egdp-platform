@@ -1,0 +1,38 @@
+bundle: engagement_logs
+
+owner: Relationship Management Lead
+
+schedule: monthly
+
+sources:
+
+  - name: engagement_logs
+
+    connector: excel
+
+    path: "{landing}/Customer Information.xlsx"
+
+    sheet: Engagement Logs
+
+    key:
+      - log_id
+
+    columns:
+      "Log ID": log_id
+      "Customer ID": customer_id
+      "Customer Name": customer_name
+
+      "Engagement Date": engagement_date
+      "Engagement Type": engagement_type
+
+      "Discussion Summary": discussion_summary
+
+      "Action Agreed": action_agreed
+
+      "Action Owner": action_owner
+
+      "Due Date": due_date
+
+    bronze: bronze.engagement_logs
+
+    silver: silver.engagement_logs
