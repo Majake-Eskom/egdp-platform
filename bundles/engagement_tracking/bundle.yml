@@ -5,7 +5,7 @@ sources:
   - name: engagement_tracker
     connector: excel
     path: "{landing}/Customer Data (1).xlsx"
-    sheet: Customer_Engagement_Tracker
+    sheet: Customer Engagement
     key: [tracker_id]
     personal_data:
       - customer_contact
@@ -20,31 +20,40 @@ sources:
         - customer_contact_number
         - customer_email_address
     columns:
-      "Tracker ID": tracker_id
+
       "Customer ID": customer_id
-      "Customer Contact": customer_contact
+
+      "Eskom Relationship Manager": relationship_manager
+
+      "Action Owner": action_owner
+
+      "Customer Contact Person": customer_contact_person
       "Customer Contact Position": customer_contact_position
       "Customer Contact Number": customer_contact_number
       "Customer Email Address": customer_email_address
-      "Eskom Dx Relationship Manager": relationship_manager
-      "Engagement Stage": engagement_stage
-      "First Engagement Date": first_engagement_date
-      "Last Engagement Date": last_engagement_date
-      "Latest Engagement Summary": latest_engagement_summary
+
+      "Last Meeting Date": last_meeting_date
+
       "Existing Relationship Status": existing_relationship_status
       "Relationship Strength": relationship_strength
+
+      "First Engagement Date": first_engagement_date
+      "Latest Engagement Date": latest_engagement_date
+
+      "Meeting Notes": meeting_notes
+
       "Next Action": next_action
-      "Action Owner": action_owner
-      "Due Date for Next Action": next_action_due_date
-      "Key Risk": key_risk
+
+      "Engagement Stage": engagement_stage
+
       "Opportunity Status": opportunity_status
-      "Eskom Green Portfolio Offered": portfolio_offered
+
+      "Key Risk": key_risk
+
+      "Portfolio Offered": portfolio_offered
+
+      "Next Action Due Date": next_action_due_date
+
       "Last Updated": last_updated
-      # Possible duplicates: confirm, then swap in for the matching line above
-      # "Eskom Relationship Manager": relationship_manager
-      # "Customer Contact Person": customer_contact
-      # "Last Meeting Date": last_meeting_date
-      # "Latest Engagement Date": last_engagement_date
-      # "Meeting Notes": latest_engagement_summary
     bronze: bronze.engagement_tracker
     silver: silver.engagement
