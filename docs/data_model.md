@@ -1,73 +1,24 @@
-# Data Model
+Customer Details
+Customer Engagement
+Engagement Logs
 
-## Customer
+↓
 
-Primary Key
+Bronze
 
-Customer ID
+↓
 
-### Customer Information
+Silver
 
-Customer Number
+↓
 
-Customer Name
+customer_profile
+customer_360
+customer_attention
+relationship_manager_portfolio
+executive_summary
 
-Customer Group
+↓
 
-Province
-
-Site Location
-
-Sector
-
-Entity Type
-
-### Consumption
-
-Annual Consumption (GWh)
-
-Average Demand (MW)
-
-### Commercial
-
-Tariff Name
-
-PPA
-
-Wheeling Type
-
-IPP Information
-
----
-
-## Engagement
-
-Primary Key
-
-Tracker ID
-
-Relationship Key
-
-Customer ID
-
-### Engagement
-
-Engagement Stage
-
-Opportunity Status
-
-Relationship Strength
-
-### Actions
-
-Next Action
-
-Action Owner
-
-Due Date
-
-### Risks
-
-Key Risk
-
-Portfolio Offered
+Power Apps
+Power BI
