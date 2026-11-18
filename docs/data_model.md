@@ -1,24 +1,25 @@
-Customer Details
-Customer Engagement
-Engagement Logs
+## Gold Data Products
 
-↓
+### customer_profile
 
-Bronze
+Business customer profile.
 
-↓
+### customer_overview
 
-Silver
+Latest engagement status for every customer.
 
-↓
+### customer_360
 
-customer_profile
-customer_360
-customer_attention
-relationship_manager_portfolio
-executive_summary
+Full customer relationship view.
 
-↓
+### customer_attention
 
-Power Apps
-Power BI
+Customers requiring action.
+
+### relationship_manager_portfolio
+
+Relationship manager ownership reporting.
+
+### executive_summary
+
+Management KPIs.

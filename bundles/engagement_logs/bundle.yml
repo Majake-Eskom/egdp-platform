@@ -15,14 +15,19 @@ sources:
     sheet: Engagement Logs
 
     key:
+
       - log_id
 
     columns:
+
       "Log ID": log_id
+
       "Customer ID": customer_id
+
       "Customer Name": customer_name
 
       "Engagement Date": engagement_date
+
       "Engagement Type": engagement_type
 
       "Discussion Summary": discussion_summary

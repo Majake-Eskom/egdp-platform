@@ -12,3 +12,5 @@ data/
 # Logs and published files
 logs/
 exports/
+
+all_code/

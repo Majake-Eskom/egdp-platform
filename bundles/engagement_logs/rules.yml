@@ -1,0 +1,25 @@
+engagement_logs:
+
+  - rule: not_null
+    column: log_id
+    severity: error
+
+  - rule: unique
+    column: log_id
+    severity: error
+
+  - rule: not_null
+    column: customer_id
+    severity: error
+
+  - rule: not_null
+    column: engagement_date
+    severity: warn
+
+  - rule: not_null
+    column: engagement_type
+    severity: warn
+
+  - rule: not_null
+    column: action_owner
+    severity: warn

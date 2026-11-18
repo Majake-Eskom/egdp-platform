@@ -2,7 +2,7 @@ SELECT
 
     relationship_manager,
 
-    COUNT(*) AS customers,
+    COUNT(*) AS total_customers,
 
     SUM(
         CASE
@@ -11,6 +11,14 @@ SELECT
             ELSE 0
         END
     ) AS active_customers,
+
+    SUM(
+        CASE
+            WHEN opportunity_status='In Progress'
+            THEN 1
+            ELSE 0
+        END
+    ) AS in_progress_customers,
 
     SUM(
         CASE
@@ -23,3 +31,5 @@ SELECT
 FROM {silver.engagement}
 
 GROUP BY relationship_manager
+
+ORDER BY total_customers DESC

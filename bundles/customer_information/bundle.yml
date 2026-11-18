@@ -1,37 +1,72 @@
 bundle: customer_information
+
 owner: Business Development Data Steward
+
 schedule: monthly
+
 sources:
+
   - name: customer_master
+
     connector: excel
-    path: "{landing}/Customer Data (1).xlsx"
-    sheet: Customer_Details
-    key: [customer_id]
-    personal_data: [customer_contact]
+
+    path: "{landing}/Customer Information.xlsx"
+
+    sheet: Customer Details
+
+    key:
+      - customer_id
+
+    personal_data:
+      - customer_contact
+
     transform:
-      company_name: [customer_name, customer_group]
-      numeric: [annual_consumption_gwh, average_demand_mw]
-      placeholder: [customer_contact]
+
+      company_name:
+        - customer_name
+        - customer_group
+
+      numeric:
+        - annual_consumption_gwh
+        - average_demand_mw
+
+      placeholder:
+        - customer_contact
+
     columns:
+
       "Customer ID": customer_id
       "Customer Number": customer_number
+
       "Customer Name": customer_name
       "Customer Group": customer_group
+
       "Province": province
       "Site Location": site_location
-      "customer_contact": customer_contact
+
+      "Customer Contact": customer_contact
+
       "Sector": sector
       "Entity Type": entity_type
-      "Annual_Consumption": annual_consumption_gwh
-      "Average Demand": average_demand_mw
+
+      "Annual_Consumption (GWh)": annual_consumption_gwh
+      "Average Demand (MW)": average_demand_mw
+
       "Tariff Name": tariff_name
+
       "Existing IPP Relation": existing_ipp_relation
       "IPP Name": ipp_name
+
       "Wheeling Type": wheeling_type
       "PPA": ppa
+
       "Key Opportunities": key_opportunities
       "Planned Capacity (MW)": planned_capacity_mw
+
       "Carbon Reduction Targets": carbon_reduction_targets
+
       "Website Link": website_link
+
     bronze: bronze.customer_master
+
     silver: silver.customer
